@@ -268,7 +268,7 @@ const LandingPage = () => {
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5 text-primary" />
             <span className="font-semibold">
-              <span className="text-primary">Cold</span>Mail<span className="text-secondary">AI</span>
+              <span className="text-primary">Cold</span>E.<span className="text-secondary">AI</span>
             </span>
           </div>
           <p className="text-sm text-muted-foreground">
