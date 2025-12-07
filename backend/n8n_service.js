@@ -1,11 +1,7 @@
 import axios from "axios";
 
 const N8N_BASE_URL = process.env.N8N_BASE_URL; // .env me rakho
-payload = {
-  "name": "Krish",
-  "niche": "Frontend Developer",
-  "skills": "React"
-}
+
 export async function generateEmail(payload) {
   const url = `${N8N_BASE_URL}/generate-email`;
   const { data } = await axios.post(url, payload);

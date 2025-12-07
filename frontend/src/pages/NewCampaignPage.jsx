@@ -17,36 +17,44 @@ import {
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const NewCampaignPage = () => {
-  const [name, setName] = useState('');
-  const [workDescription, setWorkDescription] = useState('');
-  const [emailLimit, setEmailLimit] = useState([20]);
+  const [personaName, setPersonaName] = useState("");
+  const [domain, setDomain] = useState("");
+  const [competencies, setCompetencies] = useState("");
+  const [emailLimit, setEmailLimit] = useState([10]); // UI only
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!name.trim()) {
-      toast.error('Please enter a campaign name');
+
+    // validations
+    if (!personaName.trim()) {
+      toast.error("Please enter a persona name");
       return;
     }
-    if (!workDescription.trim()) {
-      toast.error('Please describe your work');
+    if (!domain.trim()) {
+      toast.error("Please enter your professional domain");
       return;
     }
-    
+    if (!competencies.trim()) {
+      toast.error("Please enter your core competencies");
+      return;
+    }
+
     setLoading(true);
     try {
-      const response = await axios.post(`${API}/campaigns`, {
-        name: name.trim(),
-        work_description: workDescription.trim(),
-        email_limit: emailLimit[0]
+      const response = await axios.post(`https://krish-gupta.app.n8n.cloud/webhook/generate-email`, {
+        persona_name: personaName.trim(),
+        domain: domain.trim(),
+        competencies: competencies.trim(),
       });
-      
-      toast.success('Campaign started! AI Agent is working...');
-      navigate(`/campaign/${response.data.id}`);
+
+      toast.success("Campaign started! AI Agent is working...");
+      // navigate(`/campaign/${response.data.id}`);
     } catch (error) {
-      toast.error(error.response?.data?.detail || 'Failed to create campaign');
+      toast.error(
+        error.response?.data?.detail || "Failed to create campaign"
+      );
     } finally {
       setLoading(false);
     }
@@ -79,25 +87,59 @@ const NewCampaignPage = () => {
             className="glass-card rounded-2xl p-8"
           >
             <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Campaign Name */}
+              {/* Persona Name */}
               <div className="space-y-3">
                 <Label htmlFor="name" className="flex items-center gap-2 text-base">
                   <User className="w-4 h-4 text-primary" />
-                  Campaign Name
+                  Persona Name
                 </Label>
                 <Input
-                  id="name"
-                  placeholder="e.g., Q4 Tech Startup Outreach"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  id="personaName"
+                  placeholder="e.g., John Doe"
+                  value={personaName}
+                  onChange={(e) => setPersonaName(e.target.value)}
                   className="terminal-input h-12 text-base"
-                  data-testid="campaign-name-input"
+                  data-testid="persona-name-input"
+                />
+                <p className="text-xs text-muted-foreground">Give your campaign a memorable name</p>
+              </div>
+
+              {/* Professional Domain */}
+              <div className="space-y-3">
+                <Label htmlFor="name" className="flex items-center gap-2 text-base">
+                  <User className="w-4 h-4 text-primary" />
+                  Professional Domain
+                </Label>
+                <Input
+                  id="domain"
+                  placeholder="e.g., Tech Startup"
+                  value={domain}
+                  onChange={(e) => setDomain(e.target.value)}
+                  className="terminal-input h-12 text-base"
+                  data-testid="Domain-input"
+                />
+                <p className="text-xs text-muted-foreground">Give your campaign a memorable name</p>
+              </div>
+
+              {/* Core Competencies */}
+              <div className="space-y-3">
+                <Label htmlFor="name" className="flex items-center gap-2 text-base">
+                  <User className="w-4 h-4 text-primary" />
+                  Core Competencies
+                </Label>
+                <Input
+                  id="competencies"
+                  placeholder="e.g., React.js, Java, etc."
+                  value={competencies}
+                  onChange={(e) => setCompetencies(e.target.value)}
+                  className="terminal-input h-12 text-base"
+                  data-testid="Competencies-input"
                 />
                 <p className="text-xs text-muted-foreground">Give your campaign a memorable name</p>
               </div>
               
               {/* Work Description */}
-              <div className="space-y-3">
+              {/* <div className="space-y-3">
                 <Label htmlFor="work" className="flex items-center gap-2 text-base">
                   <FileText className="w-4 h-4 text-primary" />
                   What do you do?
@@ -111,7 +153,7 @@ const NewCampaignPage = () => {
                   data-testid="campaign-work-input"
                 />
                 <p className="text-xs text-muted-foreground">AI will use this to personalize your emails</p>
-              </div>
+              </div> */}
               
               {/* Email Limit */}
               <div className="space-y-4">
