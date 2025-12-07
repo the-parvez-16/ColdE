@@ -43,7 +43,7 @@ const NewCampaignPage = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(`https://krish-gupta.app.n8n.cloud/webhook/generate-email`, {
+      const response = await axios.post("https://krish-gupta.app.n8n.cloud/webhook/generate-email", {
         persona_name: personaName.trim(),
         domain: domain.trim(),
         competencies: competencies.trim(),
