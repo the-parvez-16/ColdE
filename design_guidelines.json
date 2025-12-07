@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "name": "E1",
+    "role": "The Anti-AI Designer",
+    "philosophy": "Fusion over Imitation. Emotion First. Content is King.",
+    "principles": [
+      "Fusion over Imitation: Mix 3+ design references.",
+      "Emotion First: Every decision maps to a feeling.",
+      "Content is king: Tell a story.",
+      "Zoom in: Bold focus on details.",
+      "Negative Space: Value empty areas.",
+      "Contrast: Light vs Dark, Rough vs Smooth."
+    ],
+    "anti_patterns": [
+      "Purple/Teal for CTA (Use Electric Violet or Acid Green instead)",
+      "Inter everywhere (Use Manrope or Space Grotesk for Headings)",
+      "Center-Everything Disease (Use Asymmetry)",
+      "Gradient Overload (Use Texture > Gloss)"
+    ]
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Manrope, sans-serif",
+      "weight": "700",
+      "letter_spacing": "-0.02em",
+      "usage": "Landing page titles, Section headers"
+    },
+    "body": {
+      "font_family": "Inter, sans-serif",
+      "weight": "400",
+      "line_height": "1.6",
+      "usage": "Paragraphs, UI text"
+    },
+    "mono": {
+      "font_family": "JetBrains Mono, monospace",
+      "weight": "400",
+      "usage": "Data values, Code snippets, Agent logs"
+    }
+  },
+  "colors": {
+    "palette_name": "Electric Void",
+    "theme": "dark",
+    "background": {
+      "default": "#020617",
+      "paper": "#0f172a",
+      "subtle": "#1e293b"
+    },
+    "primary": {
+      "main": "#7c3aed",
+      "hover": "#6d28d9",
+      "foreground": "#ffffff"
+    },
+    "secondary": {
+      "main": "#06b6d4",
+      "hover": "#0891b2",
+      "foreground": "#ffffff"
+    },
+    "accent": {
+      "main": "#10b981",
+      "glow": "0 0 20px rgba(16, 185, 129, 0.5)"
+    },
+    "text": {
+      "primary": "#f8fafc",
+      "secondary": "#94a3b8",
+      "muted": "#64748b"
+    },
+    "border": {
+      "default": "#1e293b",
+      "active": "#334155"
+    },
+    "status": {
+      "positive": "#10b981",
+      "negative": "#ef4444",
+      "warning": "#f59e0b",
+      "neutral": "#64748b"
+    }
+  },
+  "layout": {
+    "spacing_scale": [
+      "p-1", "p-2", "p-4", "p-6", "p-8", "p-12", "p-16", "p-24", "p-32"
+    ],
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "grid_systems": {
+      "marketing": {
+        "name": "Tetris Grid",
+        "classes": "grid grid-cols-1 md:grid-cols-12 gap-8",
+        "rules": "Asymmetry is key. Use col-span-8 for hero, col-span-4 for supporting."
+      },
+      "dashboard": {
+        "name": "Control Room Grid",
+        "classes": "grid grid-cols-1 md:grid-cols-4 gap-4",
+        "rules": "Dense but breathable. Use h-full on children."
+      }
+    }
+  },
+  "components": {
+    "buttons": {
+      "style": "hybrid",
+      "classes": "rounded-md font-medium transition-all duration-200 active:scale-95",
+      "variants": {
+        "primary": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_15px_rgba(124,58,237,0.3)]",
+        "secondary": "bg-secondary/10 text-secondary hover:bg-secondary/20 border border-secondary/20",
+        "ghost": "hover:bg-accent hover:text-accent-foreground"
+      }
+    },
+    "cards": {
+      "style": "glass_crystal",
+      "classes": "bg-background/40 backdrop-blur-xl border border-white/10 shadow-lg rounded-xl"
+    },
+    "inputs": {
+      "style": "terminal",
+      "classes": "bg-background/50 border-border focus:border-primary focus:ring-1 focus:ring-primary/50 font-mono text-sm"
+    },
+    "visual_enhancers": {
+      "tracing_beam": "Use for high-conversion cards. Animated gradient border.",
+      "noise_texture": "Overlay a subtle noise texture on the background to kill digital flatness.",
+      "glow_effects": "Use drop-shadow-[0_0_10px_rgba(...)] for active states."
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1762278805026-9e0e673e5dc4?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Abstract streaks of purple and green light - Use for Landing Page Hero Background"
+      },
+      {
+        "category": "feature_abstract",
+        "url": "https://images.unsplash.com/photo-1762278804798-dd7e493db051?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Abstract purple lines on black - Use for 'How it Works' or Feature section"
+      },
+      {
+        "category": "workspace_minimal",
+        "url": "https://images.unsplash.com/photo-1723810388971-f8cd6474597f?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Empty dark office - Use for 'About' or 'Enterprise' section background"
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px, size 20px or 24px"
+    }
+  },
+  "motion": {
+    "philosophy": "Micro-interactions are mandatory. Static = Dead.",
+    "transitions": "transition-all duration-300 ease-out",
+    "hover_effects": "hover:-translate-y-1 hover:shadow-lg",
+    "loading": "Use 'Terminal' style typing effects or 'Scanner' lines for AI processing states."
+  },
+  "accessibility": {
+    "contrast": "Ensure 4.5:1 for normal text. Use APCA standards.",
+    "focus_states": "Visible ring-2 ring-primary ring-offset-2 ring-offset-background",
+    "reduced_motion": "Respect prefers-reduced-motion media query."
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lucide-react', 'framer-motion', 'clsx', 'tailwind-merge' if not present.",
+    "2. THEME: Update tailwind.config.js to match the 'Electric Void' palette.",
+    "3. LAYOUT: Implement the 'Tetris Grid' for the Landing Page and 'Control Room Grid' for the Dashboard.",
+    "4. COMPONENTS: Customize Shadcn components. Do not use the default 'slate' look. Inject the 'glass_crystal' style into Cards.",
+    "5. AGENT INTERFACE: Build the input form to look like a futuristic terminal or command center. Use the 'mono' font for inputs.",
+    "6. LOADING: Create a dedicated 'Processing...' screen with a typing effect or a scanning animation.",
+    "7. IMAGES: Use the provided Unsplash URLs. Do not use placeholders.",
+    "8. MOCK API: Simulate the n8n workflow with `setTimeout` and state updates to show 'Sending...', 'Verifying...', 'Completed'.",
+    "9. TESTING: Add `data-testid` to all interactive elements."
+  ],
+  "universal_guidelines": [
+    "Avoid generic 'AI slop' designs.",
+    "Dark colors look good when used independently without gradients.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "NEVER use AI assistant Emoji characters like 🤖🧠 etc.",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable."
+  ]
+}
